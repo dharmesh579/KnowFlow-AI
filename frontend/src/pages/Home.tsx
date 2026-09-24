@@ -6,7 +6,7 @@ export default function Home() {
       {/* KnowFlow-AI Logo */}
       <div className="mb-8">
         <img
-          src="../../public/knowflowimg.png"
+          src="/knowflowimg.png"
           alt="KnowFlow-AI"
           className="w-72 mx-auto"
         />
