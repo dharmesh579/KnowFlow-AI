@@ -1,3 +1,5 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
 export interface UploadResponse {
   message: string;
   documentId: string;
@@ -66,7 +68,7 @@ export async function uploadDocument(file: File): Promise<UploadResponse> {
   const formData = new FormData();
   formData.append("document", file);
 
-  const res = await fetch("/api/documents/upload", {
+  const res = await fetch(`${API_URL}/api/documents/upload`, {
     method: "POST",
     body: formData,
   });
@@ -78,7 +80,7 @@ export async function askQuestion(
   question: string,
   documentId?: string,
 ): Promise<ChatResponse> {
-  const res = await fetch("/api/chat", {
+  const res = await fetch(`${API_URL}/api/chat`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ question, documentId }),
